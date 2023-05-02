@@ -1,7 +1,9 @@
-// Import the necessary dependencies
+//Import the necessary dependencies
 const inquirer = require('inquirer');
-const { getAllDepartments, getAllRoles, getAllEmployees, addDepartment, addRole, addEmployee, updateEmployeeRole } = require('./db');
-
+const { getAllDepartments, addDepartment } = require('./lib/department.js');
+const { getAllRoles, addRole } = require('./lib/role.js');
+const { getAllEmployees, addEmployee, updateRole } = require('./lib/employee.js');
+const connection = require('./db/connection.js');
 // Prompt the user with a list of options to choose from
 function promptUser() {
   return inquirer.prompt([
@@ -126,7 +128,7 @@ async function handleUserChoice() {
           }
         ]);
         // Call the function to update the employee's role
-        await updateEmployeeRole(employee_id, role_id);
+        await updateRole(employee_id, role_id);
         console.log(`Employee role updated successfully!`);
         break;
   
@@ -135,10 +137,9 @@ async function handleUserChoice() {
         process.exit(0);
         break;
     }
-    // Call the function to prompt the user again
     await handleUserChoice();
-  }
+  } 
   
   // Call the function to start the application
-  handleUserChoice();
-    
+    handleUserChoice();
+

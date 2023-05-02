@@ -32,3 +32,4 @@ Console.table: For printing MySQL rows to the console in a formatted table.
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Find a Demo Video here:
+https://youtu.be/CIv2zzR6VyU
